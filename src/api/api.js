@@ -11,6 +11,8 @@ export async function getOneCallDailyByCityName(query) {
         appid: API_KEY,
       },
     })
-    .then((res) => res.data)
+    .then((res) => {
+      return { ...res.data, name: query.name };
+    })
     .catch((e) => console.error(e));
 }
